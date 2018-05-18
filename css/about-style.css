@@ -1,0 +1,112 @@
+.about {
+    background: url(../img/about/about-bg.png) no-repeat center center fixed, #665464;
+    background-size:cover;
+}
+.label {
+    margin-top: 52px;
+    margin-bottom: 70px;
+    padding: 10px 40px;
+    font-size: 25px;
+    font-weight: 900;
+    background: #a1ca6c;
+    position: relative;
+}
+.label:after {
+    content: "";
+    position:absolute;
+    left: 44.5%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 15px 0 15px;
+    border-color: #a1ca6c transparent transparent transparent;
+}
+.team {
+    margin-bottom: 110px;
+}
+
+.team-item {
+    margin: 10px auto;
+    cursor: pointer;
+    justify-content: flex-start;
+    height: 380px;
+    width: 260px;
+    background: rgba(77, 63, 75, .5);
+}
+.team-item__photo {
+    margin-top: 42px;
+    margin-bottom: 21px;
+    width: 165px;
+    height: 165px;
+    box-sizing: border-box;
+    border: 4px solid #a1859e;
+}
+
+.team-item__name{
+    font-size: 25px;
+    font-weight: 900;
+    color: #a1859e;
+}
+.team-item__position {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #a1ca6c;
+    font-weight: 400;
+}
+
+.team-item__social {
+    padding: 0;
+    list-style: none;
+    margin-top: 35px;
+    height: 32px;
+    width: 180px;
+    align-items: center;
+    position: relative;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+.facebook {
+    background: url(../img/about/social-icons.png) no-repeat 1px 1px, #a1859e;
+}
+.twitter {
+    background: url(../img/about/social-icons.png) no-repeat -32px 2px, #a1859e;
+}
+.google {
+    background: url(../img/about/social-icons.png) no-repeat -63px 2px, #a1859e;
+}
+.linkedin {
+    background: url(../img/about/social-icons.png) no-repeat -96px 2px, #a1859e;
+}
+.facebook:hover {
+    background: url(../img/about/social-icons.png) no-repeat 1px 1px, #4f689e;
+}
+.twitter:hover {
+    background: url(../img/about/social-icons.png) no-repeat -32px 2px, #74c7d5;
+}
+.google:hover {
+    background: url(../img/about/social-icons.png) no-repeat -63px 2px, #df5c64;
+}
+.linkedin:hover {
+    background: url(../img/about/social-icons.png) no-repeat -96px 2px, #3e61af;
+}
+
+.team-item:hover {
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.team-item:hover .team-item__photo{
+    border-color: #df5c64;
+}
+
+.team-item:hover .team-item__name {
+    color: white;
+}
+.team-item:hover .team-item__position {
+    color: #df5c64;
+}

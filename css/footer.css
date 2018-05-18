@@ -1,0 +1,52 @@
+
+.footer {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #68a097;
+}
+.footer-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 20px;
+}
+
+.footer-icon.facebook {
+    background: url(../img/about/social-icons.png) no-repeat  2px 2px, #82c8bd;
+    background-size: 400%;
+}
+
+.footer-icon.twitter {
+    background: url(../img/about/social-icons.png) no-repeat -60px 2px, #82c8bd;
+    background-size: 400%;
+}
+.footer-icon.google {
+    background: url(../img/about/social-icons.png) no-repeat -118px 2px, #82c8bd;
+    background-size: 400%;
+}
+.footer-icon.linkedin {
+    background: url(../img/about/social-icons.png) no-repeat -181px 0px, #82c8bd;
+    background-size: 400%;
+}
+
+
+
+.footer-icon.facebook:hover {
+    background: url(../img/about/social-icons.png) no-repeat  2px 2px, #4f689e;
+    background-size: 400%;
+}
+
+.footer-icon.twitter:hover {
+    background: url(../img/about/social-icons.png) no-repeat -60px 2px, #74c7d5;
+    background-size: 400%;
+}
+.footer-icon.google:hover {
+    background: url(../img/about/social-icons.png) no-repeat -118px 2px, #df5c64;
+    background-size: 400%;
+}
+.footer-icon.linkedin:hover {
+    background: url(../img/about/social-icons.png) no-repeat -181px 0px, #3e61af;
+    background-size: 400%;
+}

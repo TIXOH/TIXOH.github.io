@@ -1,0 +1,37 @@
+.menu-wrapper {
+    z-index: 2;
+    align-items: center;
+    position: fixed;
+	left: 0;
+	right: 0;
+}
+
+.site-logo {
+    font-size: 50px;
+    font-family: 'Damion';
+    height: inherit;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-right: 10px;
+    height: inherit;
+}
+
+.menu-item {
+    display: inline-block;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 47px 27px 17px;
+    border-radius:0 0  5px 5px;
+}
+.menu-item:hover,
+.menu-active {
+    text-decoration: none;
+    background: rgba(255, 255, 255, .5);
+}
+
+

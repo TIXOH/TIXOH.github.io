@@ -1,0 +1,137 @@
+.contacts {
+    background: url(../img/contacts/contact-bg.png) no-repeat center center fixed, #75b4aa;
+    font-size: 16px;
+    background-size: cover;
+    
+}
+
+.contacts__text-block {
+    margin-bottom: 105px;
+}
+
+.contacts__info {
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 85px;
+}
+
+.contacts__info-item {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    height: 270px;
+}
+
+.contacts__location-header {
+    font-size: 30px;
+    margin-bottom: 26px;
+}
+
+.contacts__location-items {
+    height: inherit;
+}
+
+.contacts__location-info {
+    width: 50%;
+    flex-direction: column;
+}
+
+.contacts__location-info__company-name {
+    font-size: 20px;
+    color: #c0dfda;
+    margin-bottom: 9px;
+}
+
+.contacts__location-info__company-address{
+    line-height: 1.5;
+}
+
+.contacts__location-info__company-contacts td:first-child {
+    color: #d0efea;
+}
+
+.contacts__form {
+    height: 350px;
+}
+
+.input-block {
+    margin-bottom: 20px;
+}
+
+.input {
+    background-color: rgb(104, 160, 151);
+    border: none;
+    padding-left: 20px;
+}
+
+.input:focus {
+    background: white;
+    color: #82c8bd;
+}
+
+::placeholder {
+     color: #82c8bd;
+}
+
+.input-block *{
+    height: 40px;
+    width: 48%;
+}
+
+.form__input-text {
+    padding-top: 10px;
+    height: 158px;
+    resize: none;
+    margin-bottom: 35px;
+}
+
+.form__intput-btn {
+    width: 260px;
+    background-color: rgb( 223, 92, 100 );
+    border: none;
+    height: 45px;
+    font-size: 26px;
+    font-weight: 400;
+    box-shadow: 0px 4px 4px 0px rgba(178, 74, 80, 1);
+    color: white;
+}
+
+.form__intput-btn:hover {
+    animation: 1.5s ease 0s normal none 1 running shake;
+}
+
+@keyframes shake {
+0% {
+    transform: rotateZ(0deg);
+}
+10% {
+    transform: rotateZ(-15deg);
+}
+20% {
+    transform: rotateZ(12deg);
+}
+30% {
+    transform: rotateZ(-10deg);
+}
+40% {
+    transform: rotateZ(7.5deg);
+}
+50% {
+    transform: rotateZ(-6deg);
+}
+60% {
+    transform: rotateZ(5deg);
+}
+70% {
+    transform: rotateZ(-4.28571deg);
+}
+80% {
+    transform: rotateZ(3.75deg);
+}
+90% {
+    transform: rotateZ(-3.33333deg);
+}
+100% {
+    transform: rotateZ(0deg);
+}
+}

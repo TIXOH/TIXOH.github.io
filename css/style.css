@@ -1,0 +1,17 @@
+@import "reset.css";
+@import "menu-style.css";
+@import "home-style.css";
+@import "services-style.css";
+@import "about-style.css";
+@import "portfolio-style.css";
+@import "contacts-style.css";
+@import "modal.css";
+@import "common.css";
+@import "media.css";
+@import "footer.css";
+
+body {
+    color: white;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+}

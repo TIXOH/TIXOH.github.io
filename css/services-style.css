@@ -1,0 +1,76 @@
+.services {
+    background: url(../img/services/services-bg.png) no-repeat center center fixed, #b24a50 ;
+    background-size: cover;
+
+}
+
+.services__text-block {
+    margin-bottom: 120px;
+}
+
+.services__items {
+    margin-bottom: 120px;
+}
+
+.services-item {
+    margin: 10px auto;
+    padding-top: 33px;
+    height: 400px;
+    width: 260px;
+    background: rgba(200, 83, 90, .8);
+}
+
+.services-item:hover {
+    transform: translateY(-60px);
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 1);
+    transition: .6s;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 13px;
+}
+
+.services-item__header {
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+.services-item__text {
+    padding: 40px 25px 40px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.services-item__img-wrapper {
+    box-sizing: border-box;
+    height: 140px;
+    width: 140px;
+    border: 5px solid white;
+    position: relative;
+}
+
+.services-item__img {
+    height: 110px;
+    width: 110px;
+    border: 5px solid transparent;
+}
+
+.research {
+    background: url(../img/services/services-sprite.png)
+        no-repeat -15px, white;
+}
+
+.design {
+    background: url(../img/services/services-sprite.png) no-repeat -140px, white;
+}
+
+.development {
+    background: url(../img/services/services-sprite.png) no-repeat -275px, white;
+}
+
+.launch {
+    background: url(../img/services/services-sprite.png) no-repeat -405px, white;
+}

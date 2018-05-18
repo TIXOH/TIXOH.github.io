@@ -1,0 +1,61 @@
+.flex-center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.height100 {
+    height:100%;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bor-rad_4 {
+    border-radius: 4px;
+}
+
+.bor-rad_50 {
+    border-radius: 50%;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.block-text {
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.block-header {
+    margin-bottom: 25px;
+    font-size: 60px;
+}
+
+.text-block {
+    margin-top: 180px;
+}
+

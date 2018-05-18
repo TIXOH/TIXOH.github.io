@@ -1,0 +1,90 @@
+.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    display: block;
+    pointer-events: auto;
+}
+ 
+.modalDialog > div {
+    width: 50%;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 4px;
+}
+
+.serviceModal>div{
+  background: #b24a50 ;
+}
+
+.modal-close {
+    background: #606061;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: 700;
+}
+ 
+.modal-close:hover { background: #00d9ff; }
+
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content {    
+    margin:0 auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+.portfolio-modal {
+    position: fixed;
+    z-index: 3;
+    padding-top: 20px;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.9);
+}
+
+@keyframes zoom {
+    from {transform:scale(0);} 
+    to {transform:scale(1;)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0);} 
+    to {transform:scale(1);}
+}
+

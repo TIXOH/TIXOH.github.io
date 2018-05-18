@@ -1,0 +1,48 @@
+.carousel-inner {
+    height: 100vh;
+}
+
+.carousel-indicators .active {
+    background: #74c7d5;
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    border:none;
+}
+
+.carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    background: white;
+    opacity: 0.4;
+}
+
+.item {
+    position: relative;
+}
+
+.carousel-caption {
+    width: 50%;
+    height: 17%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    background: rgba(255, 255, 255, .5);
+    display: flex;
+    align-items: center;
+    color: #74c7d5;
+}
+
+.slider-text {
+    width: 50%;
+    text-align: right;
+    display: block;
+    font-weight: 100;
+    font-size: 3vw;
+    padding-right: 20px;
+}
+
+.slider-text--bold {
+    font-size: 6vw;
+    font-weight: 700;
+}
