@@ -1,167 +1,173 @@
-/*//input'ы для ввода чисел
-var firstNumber = document.querySelector('#number1');
-var secondNumber = document.querySelector('#number2');
-//массив кнопок + - / * 
-var btnsEl = document.querySelectorAll('.btn');
-//div для вывода результата вычисления
-var resultEl = document.querySelector('.result');
+var Calc = function () {
 
-for (var i = 0; i < btnsEl.length; i++) {
-    btnsEl[i].addEventListener('click', operation);
-}
-function operation() {
-    var x = Number(firstNumber.value);
-    var y = Number(secondNumber.value);
-    var result = null;
-    if (x && y) {
-        switch (this.dataset.operation) {
-            case '+':
-                result = x + y;
-                break;
-            case '-':
-                result = x - y;
-                break;
-            case '*':
-                result = x * y;
-                break;
-            case '/':
-                result = x / y;
-                break;
-        }
-        resultEl.innerHTML = result;
-    } else {
-        resultEl.innerHTML = 'Need 2 numbers';
+    this.buttons = [];
+    this.firstNumber = null;
+    this.secondNumber = null;
+    this.operator = null;
+    this.resultGetted = false;
+    this.result = null;
+
+    this.signBtn = document.createElement('button');
+    this.signBtn.innerHTML = '+/-';
+
+    this.resultBtn = document.createElement('button');
+    this.resultBtn.innerHTML = '=';
+
+    this.plusBtn = document.createElement('button');
+    this.plusBtn.innerHTML = '+';
+    this.plusBtn.dataset.operation = '+';
+
+    this.minusBtn = document.createElement('button');
+    this.minusBtn.innerHTML = '-';
+    this.minusBtn.dataset.operation = '-';
+
+    this.multiBtn = document.createElement('button');
+    this.multiBtn.innerHTML = '*';
+    this.multiBtn.dataset.operation = '*';
+
+    this.divideBtn = document.createElement('button');
+    this.divideBtn.innerHTML = '/';
+    this.divideBtn.dataset.operation = '/';
+
+    this.dotBtn = document.createElement('button');
+    this.dotBtn.innerHTML = '.';
+    this.dotBtn.dataset.operation = '.';
+
+    this.cleanerBtn = document.createElement('button');
+    this.cleanerBtn.classList.add('cleaner');
+    this.cleanerBtn.innerHTML = "CLEANER";
+
+    //создаем кнопки 0 - 9 и пушим в массив
+    for (let i = 0; i < 10; i++) {
+        let numberBtn = document.createElement('button');
+        numberBtn.innerHTML = i;
+        numberBtn.dataset.number = i;
+        numberBtn.addEventListener('click', this.addNumberOnScreen.bind(this));
+        this.buttons.push(numberBtn);
     }
-}*/
-//-------------------------------------------------
 
-/*
-var firstNumber = document.querySelector('#number1');
-var secondNumber = document.querySelector('#number2');
-var selectorEl = document.querySelector('#operations');
-var btnEl = document.querySelector('.btn');
-var resultEl = document.querySelector('.result');
+    this.divideBtn.addEventListener('click', this.getOperation.bind(this));
+    this.plusBtn.addEventListener('click', this.getOperation.bind(this));
+    this.multiBtn.addEventListener('click', this.getOperation.bind(this));
+    this.minusBtn.addEventListener('click', this.getOperation.bind(this));
+    this.signBtn.addEventListener('click', this.changeSign.bind(this));
+    this.dotBtn.addEventListener('click', this.addDotOnScreen.bind(this));
+    this.resultBtn.addEventListener('click', this.getResult.bind(this));
+    this.cleanerBtn.addEventListener('click', this.clearAll.bind(this));
 
-btnEl.addEventListener('click', operation);
+    this.init();
+};
 
-function operation() {
-    var x = Number(firstNumber.value);
-    var y = Number(secondNumber.value);
-    var result = null;
-    if (x && y) {
-        switch (selectorEl.value) {
-            case '+':
-                result = x + y;
-                break;
-            case '-':
-                result = x - y;
-                break;
-            case '*':
-                result = x * y;
-                break;
-            case '/':
-                result = x / y;
-                break;
-        }
-        resultEl.innerHTML = result;
-    } else {
-        resultEl.innerHTML = 'Need 2 numbers';
-    }
-}
-*/
-var btnsNumber = document.querySelectorAll('.btn-number');
-var btnsOper = document.querySelectorAll('.btn-operation');
-var screenEl = document.querySelector('.screen');
-var btnCleaner = document.querySelector('#cleaner');
-var btnResult = document.querySelector('#result');
-var btnFloat = document.querySelector('#floatBtn');
-var btnSignChange = document.querySelector('#sign-changer');
+Calc.prototype.init = function () {
 
-var frstNumber = null;
-var scndNumber = null;
-var operation = null;
-var resultGetted = false;
+    //оболочка калькулятора
+    this.calc = document.createElement('div');
+    this.calc.classList.add('calc');
+    document.querySelector('body').insertBefore(this.calc, this.lastChild);
+    //оболочка калькулятора-экран вывода
+    this.screenEl = document.createElement('div');
+    this.screenEl.classList.add('screen');
+    this.calc.appendChild(this.screenEl);
+    //оболочка калькулятора-блок кнопок
+    this.btnsBlock = document.createElement('div');
+    this.calc.appendChild(this.btnsBlock);
+    //оболочка калькулятора-блок кнопок-верхний ряд
+    this.firstLine = document.createElement('div');
+    this.firstLine.classList.add('first-line');
+    this.btnsBlock.appendChild(this.firstLine);
+    //оболочка калькулятора-блок кнопок-верхний ряд-кнопки
+    this.firstLine.appendChild(this.cleanerBtn);
+    this.firstLine.appendChild(this.divideBtn);
+    //оболочка калькулятора-блок кнопок-блок остальных кнопок
+    this.btns = document.createElement('div');
+    this.btns.classList.add('btns');
+    this.btnsBlock.appendChild(this.btns);
 
+    //оболочка калькулятора-блок кнопок-блок остальных кнопок-кнопки
+    this.createNumberButtonsFromTo(1, 3);
+    this.btns.appendChild(this.multiBtn);
+    this.createNumberButtonsFromTo(4, 6);
+    this.btns.appendChild(this.minusBtn);
+    this.createNumberButtonsFromTo(7, 9);
+    this.btns.appendChild(this.plusBtn);
+    this.btns.appendChild(this.signBtn);
+    this.btns.appendChild(this.buttons[0]);
+    this.btns.appendChild(this.dotBtn);
+    this.btns.appendChild(this.resultBtn);
+};
 
-btnCleaner.addEventListener('click', clearScreen);
-
-for (var i = 0; i < btnsNumber.length; i++) {
-    btnsNumber[i].addEventListener('click', addNumberOnScreen);
-}
-
-btnSignChange.addEventListener('click', changeSign);
-
-btnFloat.addEventListener('click', function () {
-    screenEl.innerHTML += '.';
-});
-
-for (var i = 0; i < btnsOper.length; i++) {
-    btnsOper[i].addEventListener('click', operationButtonClickListener);
-}
-
-btnResult.addEventListener('click', resultButtonClickListener);
-
-function getNumber(element) {
-    return element.dataset.number;
-}
-
-function addNumberOnScreen() {
-    if (resultGetted) {
-        clearScreen();
-        resultGetted = false;
-    }
-    var newNumber = getNumber(this);
-    screenEl.innerHTML += newNumber;
-}
-
-function clearScreen() {
-    screenEl.innerHTML = '';
-}
-
-function getFsrtOperand() {
-    frstNumber = Number(screenEl.innerHTML);
-}
-
-function getOperation() {
-    switch (operation) {
+Calc.prototype.getResult = function () {
+    this.getSecondOperand();
+    this.clearScreen();
+    switch (this.operator) {
         case '+':
-            screenEl.innerHTML = Number((frstNumber + scndNumber).toFixed(4));
+            this.result = Number((this.firstNumber + this.secondNumber).toFixed(4));
             break;
         case '-':
-            screenEl.innerHTML = Number((frstNumber - scndNumber).toFixed(4));
+            this.result = Number((this.firstNumber - this.secondNumber).toFixed(4));
             break;
         case '*':
-            screenEl.innerHTML = Number((frstNumber * scndNumber).toFixed(4));;
+            this.result = Number((this.firstNumber * this.secondNumber).toFixed(4));;
             break;
         case '/':
-            screenEl.innerHTML = Number((frstNumber / scndNumber).toFixed(4));;
+            this.result = Number((this.firstNumber / this.secondNumber).toFixed(4));;
             break;
     }
-}
+    this.screenEl.innerHTML = this.result;
+    this.clearData();
+};
 
-function clearAllData() {
-    frstNumber = null;
-    scndNumber = null;
-    operation = null;
-}
+Calc.prototype.clearAll = function () {
+    this.clearData();
+    this.clearScreen();
+};
 
-function operationButtonClickListener() {
-    getFsrtOperand();
-    clearScreen();
-    operation = this.dataset.operation;
-    console.log(operation);
-}
+Calc.prototype.clearData = function () {
+    this.firstNumber = null;
+    this.secondNumber = null;
+    this.operator = null;
+    this.resultGetted = true;
+};
 
-function resultButtonClickListener() {
-    scndNumber = Number(screenEl.innerHTML);
-    clearScreen();
-    getOperation();
-    resultGetted = true;
-    clearAllData();
-    console.log(frstNumber);
-    console.log(scndNumber);
-}
+Calc.prototype.clearScreen = function () {
+    this.screenEl.innerHTML = '';
+};
 
-function changeSign() {
-    screenEl.innerHTML = -Number(screenEl.innerHTML);
-}
+Calc.prototype.changeSign = function () {
+    this.screenEl.innerHTML = -Number(this.screenEl.innerHTML);
+};
+
+Calc.prototype.addDotOnScreen = function () {
+    this.screenEl.innerHTML += '.';
+};
+
+Calc.prototype.getFirstOperand = function () {
+    this.firstNumber = Number(this.screenEl.innerHTML);
+};
+
+Calc.prototype.getSecondOperand = function () {
+    this.secondNumber = Number(this.screenEl.innerHTML);
+};
+
+Calc.prototype.addNumberOnScreen = function (e) {
+    if (this.resultGetted) {
+        this.clearScreen();
+        this.resultGetted = false;
+    }
+    this.screenEl.innerHTML += e.currentTarget.dataset.number;
+};
+
+Calc.prototype.getOperation = function (e) {
+    this.operator = e.currentTarget.dataset.operation;
+    this.getFirstOperand();
+    this.clearScreen();
+};
+
+Calc.prototype.createNumberButtonsFromTo = function (from, to) {
+    for (var i = from; i < to + 1; i++) {
+        this.btns.appendChild(this.buttons[i]);
+    }
+};
+
+let c = new Calc();
+let c1 = new Calc();
